@@ -2,10 +2,10 @@
  * Name: Mohammed Juned Ahmed
  * Student ID: 300833356
  * File: server.js
- * Description: Our connect server, imported third party module 'connect'.
- * 
+ * Description: Connect server.
  */
 
+// imported third party module 'connect'
 let connect = require('connect');
 
 const http = require('http');
