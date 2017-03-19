@@ -1,0 +1,68 @@
+<!-- 
+ File Name: header.ejs
+ Author: Mohammed Juned Ahmed
+ Website Name: https://comp308assignment1.herokuapp.com/
+ File Description: Contains the partials for header.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="description" content="Portfolio Website" />
+    <meta name="keywords" content="ExperssJS, ConnectJS, NodeJS, bootstrap, Jquery, MongoDB" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="/Scripts/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/Content/style.css' />
+    <link rel='stylesheet' href='/Content/app.css' />
+  </head>
+  <body>
+		<div id="main">
+    <div id="header">
+	  <div id="banner">
+	    <div id="welcome">
+	      <h1><span>Mohammed </span>Ahmed</h1>
+	    </div><!--close welcome-->
+	    <div id="welcome_slogan">
+	      <h1>Your Company Slogan Here</h1>
+	    </div><!--close welcome_slogan-->
+	  </div><!--close banner-->
+    </div><!--close header-->
+
+		<div id="menubar">
+				<ul id="menu">
+					<% if(title == "Home") { %>
+						<li class="current"><a href="/">Home</a></li>
+					<% } else { %>
+						<li><a href="/">Home</a></li>
+					<% } %>
+
+					<% if(title == "Projects") { %>
+						<li class="current"><a href="/projects">Projects</a></li>
+					<% } else { %>
+						<li><a href="/projects">Projects</a></li>
+					<% } %>
+
+					<% if(title == "Services") { %>
+						<li class="current"><a href="/services">Services</a></li>
+					<% } else { %>
+						<li><a href="/services">Services</a></li>
+					<% } %>
+
+					<% if(title == "About") { %>
+					<li class="current"><a href="/about">About</a></li>
+					<% } else { %>
+					<li><a href="/about">About</a></li>
+					<% } %>
+
+					<% if(title == "Contact") { %>
+					<li class="current"><a href="/contact">Contact</a></li>
+					<% } else { %>
+					<li><a href="/contact">Contact</a></li>
+					<% } %>
+				</ul>
+			</div><!--close menubar-->

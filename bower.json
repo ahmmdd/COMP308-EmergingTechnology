@@ -1,17 +1,17 @@
 {
-  "name": "comp308-lessons",
-  "description": "## Welcome to Lesson 9 - MEAN CRUD",
+  "name": "businesscontactlistauthentication",
+  "description": "",
   "main": "server.js",
   "authors": [
     "Mohammed Juned Ahmed"
   ],
   "license": "ISC",
   "keywords": [
-    "NodeJS",
-    "ExpressJS",
-    "EJS"
+    "Express",
+    "EJS",
+    "JS"
   ],
-  "homepage": "https://github.com/ahmmdd/COMP308-EmergingTechnology",
+  "homepage": "https://github.com/ahmmdd/COMP308Assignment2",
   "ignore": [
     "**/.*",
     "node_modules",

@@ -1,0 +1,39 @@
+<!-- 
+ File Name: projects.ejs
+ Author: Mohammed Juned Ahmed
+ Website Name: https://comp308assignment1.herokuapp.com/
+ File Description: HTML page displaying all the projects information.
+-->
+
+<!-- HEADER -->
+<% include ./partials/header %>
+
+<div id="site_content">	
+  <% include ./partials/sidebar %>
+  <% include ./partials/slideshow %>
+  <div id="content">
+    <div class="content_item">
+      <h2>Latest Projects</h2>
+      <div class="content_container">       
+        <h3>Blobia Inc.</h3>
+        <p><img src="Assets/images/blobia.png" style="width:8em;float:left;clear:both;padding:0;margin:.5em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
+      </div><!--close content_container-->
+      <div class="content_container">			  
+        <h3>Easy As Pi</h3>
+        <p><img src="Assets/images/easyaspie.jpg" style="width:8em;float:left;clear:both;padding:0;margin:.5em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
+			</div><!--close content_container-->
+      <div class="content_container">       
+        <h3>Dodge The Meteor Shower</h3>
+        <p><img src="Assets/images/dodge.jpg" style="width:8em;float:left;clear:both;padding:0;margin:.5em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
+      </div><!--close content_container-->
+      <div class="content_container">			  
+        <h3>Guessing Game</h3>
+        <p><img src="Assets/images/guess.jpg" style="width:8em;float:left;clear:both;padding:0;margin:.5em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
+			</div><!--close content_container-->
+	  </div><!--close content_item-->
+  </div><!--close content-->   
+</div><!--close site_content--> 
+
+<% include ./partials/contentGrey %>
+<!-- FOOTER -->
+<% include ./partials/footer %>

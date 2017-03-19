@@ -1,0 +1,43 @@
+<!-- 
+ File Name: index.ejs
+ Author: Mohammed Juned Ahmed
+ Website Name: https://comp308assignment1.herokuapp.com/
+ File Description: HTML page displaying all the home page information.
+-->
+
+<!-- HEADER -->
+<% include ./partials/header %>
+
+<div id="site_content">
+  <% include ./partials/sidebar %>
+  <% include ./partials/slideshow %>
+  <div id="content">
+    <div class="content_item">
+      <h1>Welcome To Your Website</h1>
+      <p>This standards compliant, simple, fixed width website template is released as an 'open source' design (under the Creative Commons Attribution 3.0 Licence), which means that you are free to download and use it for anything you want (including modifying and amending it). If you would like to remove the &lsquo;website template by ARaynorDesign&rsquo; link from the footer of a template / website then that is OK, providing you make a small donation via the website. I do not specify an amount, just what you think the design is worth.</p>
+      <div class="content_image">
+        <img src="Assets/images/content_image1.jpg" alt="image1"/>
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
+      <br style="clear:both"/>
+      <div class="content_container">
+	      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
+		  	<div class="button_small">
+          <a href="#">Read more</a>
+        </div><!--close button_small-->
+		  </div><!--close content_container-->
+      <div class="content_container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
+        <div class="button_small">
+          <a href="#">Read more</a>
+        </div><!--close button_small-->
+		  </div><!--close content_container-->
+		</div><!--close content_item-->
+  </div><!--close content-->
+</div><!--close site_content-->
+
+<% include ./partials/contentGrey %>
+       
+<!-- FOOTER -->
+<% include ./partials/footer %>
