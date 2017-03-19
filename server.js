@@ -2,13 +2,12 @@
  * Name: Mohammed Juned Ahmed
  * Student ID: 300833356
  * File: server.js
- * Description: Connect server.
+ * Description: Express server.
  */
 
-// imported third party module 'connect'
-let connect = require('connect');
-
-const http = require('http');
+// imported third party module 'express'
+let express = require('express');
+let app = express();
 
 //created server object
 let app = connect();
@@ -24,12 +23,12 @@ console.log(`Server running at http://localhost: ${port}`);
 
 // hello route
 app.use('/hello', (req, res, next) =>{
-    res.setHeader('Content-Type', 'text/plain');
     res.end('Hello World!');
+    next();
 });
 
 // main route for any website
 app.use('/', (req, res, next) =>{
-    res.setHeader('Content-Type', 'text/plain');
     res.end('Welcome:');
+    next();
 });
