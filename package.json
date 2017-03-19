@@ -1,14 +1,28 @@
 {
   "name": "comp308-lessons",
   "version": "1.0.0",
-  "description": "App for NodeJS",
-  "main": "app.js",
+  "description": "Connect Server",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmmdd/COMP308-EmergingTechnology.git"
   },
   "keywords": [
-    "NodeJS"
+    "Connect",
+    "NodeJS",
+    "JavaScript"
   ],
   "author": "Mohammed Juned Ahmed",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmmdd/COMP308-EmergingTechnology/issues"
+  },
+  "homepage": "https://github.com/ahmmdd/COMP308-EmergingTechnology#readme",
+  "dependencies": {
+    "connect": "^3.5.0"
+  }
 }
