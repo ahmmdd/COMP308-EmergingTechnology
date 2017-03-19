@@ -1,0 +1,41 @@
+/**
+ * File Name: style.css
+ * Author: Mohammed Juned Ahmed
+ * Website Name: https://comp308-assignment2.herokuapp.com/
+ * File Description: This is custom Style Sheet.
+ */
+
+.right {
+    float: right;
+    width: 175px;
+}
+
+.wrapper{
+    padding: 20px;
+    height: auto;
+}
+
+.footer{
+    padding-top: 0.5em;
+    padding-right: 2em;
+    text-align: right;
+    color: #FDF3E7;
+}
+body{
+  padding-top: 40px;
+  background-color: #FDF3E7;
+}
+
+@media (max-width: 979px) { body { padding-top: 0px; } }
+
+.jumbotron{
+    background-color: #062F4F;
+    color: #FDF3E7;
+}
+
+#floatRight {
+  width:20em;
+  float:right;
+  padding:0;
+  margin: 0 0 10px 10px;
+}

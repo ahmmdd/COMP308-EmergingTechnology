@@ -1,5 +1,17 @@
+/**
+ * File Name: db.js
+ * Author: Mohammed Juned Ahmed
+ * Website Name: https://comp308-assignment2.herokuapp.com/
+ * File Description: 
+ */
+
 module.exports = {
-  //local MongoDB deployment ->
-  "URI": "mongodb://localhost/videogames"
-  //Remote MongoDB deployment -> let URI = "mongodb://thomas:123456@ds054999.mlab.com:54999/videogames";
-};
+	/*+++++++++++++mLab+++++++++++++++++++++++++++++++++++++++++++*/ 
+	"URI":"mongodb://ahmed3415:3415@ds060009.mlab.com:60009/businesscontactlist"
+
+	/*++++++++++++Local Mongo DB++++++++++++++++++++++++++++++++++*/
+	//"URI":"mongodb://localhost/BusinessContactList"
+	
+}
+
+

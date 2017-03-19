@@ -1,15 +1,22 @@
-<% include ../partials/header.ejs %>
+<!-- 
+ File Name: 404.ejs
+ Author: Mohammed Juned Ahmed
+ Website Name: https://comp308-assignment2.herokuapp.com/
+ File Description: 
+-->
 
-    <!-- MAIN CONTENT -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-          <h1><%= title %></h1>
-          <p>Sorry, the page you are looking for is not found :(</p>
-        </div>
-      </div>
-    </div>
+<!-- HEADER -->
+<% include ../partials/header %>
 
-<% include ../partials/footer.ejs %>
-
-
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<h1><%= title %></h1>
+      <p>Sorry, the page you are looking for is not found :(</p>
+		</div>
+	</div>
+</div>
+  
+<!-- FOOTER -->
+<% include ../partials/footer %>

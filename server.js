@@ -5,7 +5,7 @@
  */
 
 let app = require('./server/app');
-let debug = require('debug')('comp308-lessons:server');
+let debug = require('debug')('businesscontactlist:server');
 let http = require('http');
 
 /**
@@ -19,7 +19,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-let server = http.createServer(app);
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
