@@ -1,4 +1,4 @@
-# COMP308 - Lesson 3 - Connect App
+# COMP308 - Lesson Lesson 4 - Intro to MongoDB
 
 ## Welcome to Connect App
 

@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "description": "##Lesson 3 - Express App",
+  "description": "##Lesson 4 - Intro to MongoDB",
   "main": "server.js",
   "authors": [
     "Mohammed Juned Ahmed"
