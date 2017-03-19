@@ -1,5 +1,5 @@
-# COMP308 - Lesson Lesson 4 - Intro to MongoDB
+# COMP308 - Lessons
 
-## Welcome to Connect App
+## Welcome to Lesson 5 - CRUD with Mongoose and MongoDB
 
 use **`npm install`** to install your project dependencies
