@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "private": true,
   "description": "Lesson 3 - Express App",
   "main": "server.js",
@@ -17,6 +17,7 @@
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "mongoose": "^4.8.1",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
   },
