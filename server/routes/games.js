@@ -1,10 +1,8 @@
-// import the express object
+// modules required for routing
 let express = require('express');
-// create the router for our application
 let router = express.Router();
 
-// create the game object - represents a document in the
-// games collection
+// define the game model
 let game = require('../models/games');
 
 // require the users controller for authentication
@@ -13,7 +11,12 @@ let usersController = require('../controllers/users');
 // require the games controller to access games collection in findById
 let gamesController = require('../controllers/games');
 
-// GET the Game Details page in order to add a new Game
+/* GET games List page. READ */
+router.get('/', usersController.RequireAuth, (req, res, next) => {
+  gamesController.ReadGameList(req, res);
+});
+
+//  GET the Game Details page in order to add a new Game
 router.get('/add', usersController.RequireAuth, (req, res, next) => {
   gamesController.DisplayAdd(req, res);
 }).post('/add', usersController.RequireAuth, (req, res, next) => {
@@ -29,7 +32,7 @@ router.get('/:id', usersController.RequireAuth, (req, res, next) => {
   gamesController.UpdateGame(req, res);
 });
 
- // GET - process the delete by user id
+// GET - process the delete by user id
 router.get('/delete/:id', usersController.RequireAuth, (req, res, next) => {
   gamesController.DeleteGame(req, res);
 });

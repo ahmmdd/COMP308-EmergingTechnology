@@ -1,7 +1,5 @@
 // modules required for routing
-// import the express object
 let express = require('express');
-// create the router for our application
 let router = express.Router();
 
 // require the index controller
@@ -14,7 +12,7 @@ router.get('/', (req, res, next) => {
 
 /* GET contact page. */
 router.get('/contact', (req, res, next) => {
-  indexController.DisplayContacts(req, res);
+  indexController.DisplayContact(req, res);
 });
 
 module.exports = router;

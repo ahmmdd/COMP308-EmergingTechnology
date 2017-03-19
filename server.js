@@ -1,10 +1,4 @@
 #!/usr/bin/env node
-/**
- * Name: Mohammed Juned Ahmed
- * Student ID: 300833356
- * File: server.js
- * Description: Module dependencies.
- */
 
 /**
  * Module dependencies.

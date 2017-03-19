@@ -1,7 +1,7 @@
-// require these modules for our user model
-let mongoose = require("mongoose");
-let Schema = mongoose.Schema;
-let passportLocalMongoose = require("passport-local-mongoose");
+// require modules for our User Model
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema; //alias for mongoose Schema
+let passportLocalMongoose = require('passport-local-mongoose');
 
 let UserSchema = new Schema({
   username: {
@@ -9,8 +9,8 @@ let UserSchema = new Schema({
     default: '',
     trim: true,
     required: 'username is required'
-  },/*
-  password: {
+  },
+ /* password: {
     type: String,
     default: '',
     trim: true,
@@ -36,8 +36,7 @@ let UserSchema = new Schema({
     type: Date,
     default: Date.now
   }
-},
-{
+},{
   collection: "users"
 });
 

@@ -4,9 +4,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-offset-3 col-md-6">
-          <my-app>Loading AppComponent content here ...</my-app>
+
+        <my-app>
+        </my-app>
+
           <h1><%= title %></h1>
-          <p>Welcome to <%= title %></p>
+          <% if(displayName) { %>
+            <h2>Welcome <%= title %>, <%= displayName %></h2>
+          <% } else { %>
+            <h2>Welcome to <%= title %></h2>
+          <% } %>
         </div>
       </div>
     </div>

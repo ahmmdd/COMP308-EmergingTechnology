@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "description": "##Lesson 9 - MEAN CRUD",
+  "description": "## Welcome to Lesson 9 - MEAN CRUD",
   "main": "server.js",
   "authors": [
     "Mohammed Juned Ahmed"
@@ -8,7 +8,8 @@
   "license": "ISC",
   "keywords": [
     "NodeJS",
-    "ExpressJS"
+    "ExpressJS",
+    "EJS"
   ],
   "homepage": "https://github.com/ahmmdd/COMP308-EmergingTechnology",
   "ignore": [
