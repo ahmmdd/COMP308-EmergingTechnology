@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "version": "1.4.2",
+  "version": "1.5.4",
   "private": true,
   "description": "Lesson 5 - CRUD with Mongoose and MongoDB",
   "main": "server.js",

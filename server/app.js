@@ -1,26 +1,30 @@
 let express = require('express');
-let path = require('path');
+let path = require('path'); // part of node.js core
 let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
-// adding the mongoose module
-let mongoose = require("mongoose");
-// connect to mongoDB and use the games database
 
-// Mongoose URI
-let URI = "mongodb://thomas:123456@ds054999.mlab.com:54999/games"
+// import "mongoose" NPM Module
+let mongoose = require('mongoose');
 
-mongoose.connect(URI, (err) => {
-  if(err) {
-    console.log("Error connecting to the database");
-  }
-  else {
-    console.log("Connected to MongoDB");
-  }
+// import the config module
+let config = require('./config/db');
+
+// connect to the Mongo db using the URI above
+mongoose.connect(process.env.URI || config.URI);
+
+// create a db object and make a reference to the connection
+let db = mongoose.connection;
+
+// listen for a successful connection
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log("Conneced to MongoDB...");
 });
 
 let index = require('./routes/index');
+let games = require('./routes/games');
 
 let app = express();
 
@@ -34,20 +38,21 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../client')));
 
-app.use('/', index);
-app.use('/users', users);
+// route redirects
+app.use('/', index); // wildcard
+app.use('/games', games);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) =>{
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
