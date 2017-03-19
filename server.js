@@ -9,26 +9,24 @@
 let express = require('express');
 let app = express();
 
-//created server object
-let app = connect();
-
 // assigned a port to constant
-const port = 3000;
+//const port = 3000;
 
 // setup a event loop - create port 3000
-app.listen(port);
-console.log(`Server running at http://localhost: ${port}`);
+app.listen(() => {
+    console.log(`Server started...`);
+});
 
-/* Mounted 2 routes to server */
+/* ROUTING - mounted routes */
 
-// hello route
+// second route is /hello 
 app.use('/hello', (req, res, next) =>{
     res.send('Hello World!');
 });
 
-// main route for any website
+// first route is '/' root of my website
 app.use('/', (req, res, next) =>{
-    res.send('Welcome:');
+    res.send('Welcome!');
 });
 
 module.exports = app;
