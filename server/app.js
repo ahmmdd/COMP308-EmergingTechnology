@@ -31,8 +31,9 @@ db.once('open', () => {
   console.log("Conneced to MongoDB...");
 });
 
-let index = require('./routes/index');
-let games = require('./routes/games');
+let index = require('./routes/index'); // top level routes
+let games = require('./routes/games'); // routes for games
+let users = require('./routes/users'); // routes for users and auth
 
 let app = express();
 
@@ -61,8 +62,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // route redirects
-app.use('/', index); // wildcard
-app.use('/games', games);
+app.use('/', index); // top level links
+app.use('/games', games); // games links - start with /games
+app.use('/users', users); // users links - start with /users
 
 // Passsport User Configuration
 let UserModel = require('./models/users');
