@@ -10,7 +10,7 @@
  * Module dependencies.
  */
 
-let app = require('./app');
+let app = require('./server/app');
 let debug = require('debug')('comp308-lessons:server');
 let http = require('http');
 
