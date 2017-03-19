@@ -1,0 +1,27 @@
+{
+  "name": "comp308-lessons",
+  "description": "##Lesson 3 - Express App",
+  "main": "server.js",
+  "authors": [
+    "Mohammed Juned Ahmed"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "NodeJS",
+    "ExpressJS"
+  ],
+  "homepage": "https://github.com/ahmmdd/COMP308-EmergingTechnology",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/Scripts/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.2.4",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}
