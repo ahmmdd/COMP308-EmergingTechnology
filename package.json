@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "private": true,
   "description": "Lesson 6 - Authentication with Passport",
   "main": "server.js",
