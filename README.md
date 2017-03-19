@@ -1,6 +1,6 @@
 # COMP308 - Lessons
 
-## Welcome to 6 - Authentication with Passport
+## Welcome to 8 - Intro to Angular 2
 
 
 use **`npm install`** to install your project dependencies

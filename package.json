@@ -1,8 +1,8 @@
 {
   "name": "comp308-lessons",
-  "version": "1.6.5",
+  "version": "1.8.1",
   "private": true,
-  "description": "Lesson 6 - Authentication with Passport",
+  "description": "Lesson 8 - Intro to Angular 2",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
