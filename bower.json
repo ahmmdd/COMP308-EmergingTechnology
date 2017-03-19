@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "description": "##Lesson 4 - Intro to MongoDB",
+  "description": "##Lesson 5 - CRUD with Mongoose and MongoDB",
   "main": "server.js",
   "authors": [
     "Mohammed Juned Ahmed"
