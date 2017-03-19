@@ -23,12 +23,12 @@ console.log(`Server running at http://localhost: ${port}`);
 
 // hello route
 app.use('/hello', (req, res, next) =>{
-    res.end('Hello World!');
-    next();
+    res.send('Hello World!');
 });
 
 // main route for any website
 app.use('/', (req, res, next) =>{
-    res.end('Welcome:');
-    next();
+    res.send('Welcome:');
 });
+
+module.exports = app;

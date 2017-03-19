@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "engines": {
+    "node": ">=6.0.0",
+    "npm": ">=3.5.0"
+ },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ahmmdd/COMP308-EmergingTechnology.git"
