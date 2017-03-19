@@ -1,90 +1,32 @@
-#!/usr/bin/env node
+// Our Express Server
+//Imported third party module for epress
+let express = require('express');
 
-/**
- * Module dependencies.
- */
+//created server object
+let app = express();
 
-let app = require('./server/app');
-let debug = require('debug')('comp308-lessons:server');
-let http = require('http');
+//assign a port to constant
+const port = 3000;
 
-/**
- * Get port from environment and store in Express.
- */
+// setting the absolute value of the path + the folder where HTML files are kept
+let path = __dirname + '/routes/'
 
-let port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+// setup event loop 
+app.listen(port);
+console.log(`Server running at http://localhost: ${port}`);
 
-/**
- * Create HTTP server.
- */
+// About route
+app.get('/about', (req, res) =>{
+  res.sendFile(path + 'about.html');
+});
 
-let server = http.createServer(app);
+// Contact route
+app.get('/contact', (req, res) =>{
+  res.sendFile(path + 'contact.html');
+});
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+// main root for any website
+app.get('/', (req, res) =>{
+  res.sendFile(path + 'index.html');
+});
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  let port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
-}
-
-/**
- * Event listener for HTTP server "error" event.
- */
-
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-
-  let bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  let addr = server.address();
-  let bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
-}

@@ -1,6 +1,6 @@
 {
-  "name": "comp308-lessons",
-  "description": "## Welcome to Lesson 9 - MEAN CRUD",
+  "name": "lab01",
+  "description": "Simple Express Website",
   "main": "server.js",
   "authors": [
     "Mohammed Juned Ahmed"
@@ -9,20 +9,20 @@
   "keywords": [
     "NodeJS",
     "ExpressJS",
-    "EJS"
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "BootStrap"
   ],
-  "homepage": "https://github.com/ahmmdd/COMP308-EmergingTechnology",
+  "homepage": "https://github.com/ahmmdd/COMP308-Lab01",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "public/Scripts/lib",
     "test",
     "tests"
   ],
   "dependencies": {
-    "jquery": "2.2.4",
-    "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0"
+    "bootstrap": "^3.3.7"
   }
 }
