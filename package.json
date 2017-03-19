@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "private": true,
   "description": "Lesson 8 - Intro to Angular 2",
   "main": "server.js",
