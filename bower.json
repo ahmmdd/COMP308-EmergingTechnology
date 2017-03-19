@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "description": "##Lesson 5 - CRUD with Mongoose and MongoDB",
+  "description": "##Lesson 6 - Authentication with Passport",
   "main": "server.js",
   "authors": [
     "Mohammed Juned Ahmed"
