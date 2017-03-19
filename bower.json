@@ -1,9 +1,9 @@
 {
-  "name": "comp308-lessons",
-  "description": "## Welcome to Lesson 9 - MEAN CRUD",
+  "name": "comp308-w2017-midterm",
+  "description": "## Welcome to the MidTerm Project - the Favourite Book List App",
   "main": "server.js",
   "authors": [
-    "Mohammed Juned Ahmed"
+    "Mohammmed Juned Ahmed"
   ],
   "license": "ISC",
   "keywords": [
@@ -11,7 +11,7 @@
     "ExpressJS",
     "EJS"
   ],
-  "homepage": "https://github.com/ahmmdd/COMP308-EmergingTechnology",
+  "homepage": "https://github.com/ahmmdd/COMP308-W2017-Midterm-300833356",
   "ignore": [
     "**/.*",
     "node_modules",

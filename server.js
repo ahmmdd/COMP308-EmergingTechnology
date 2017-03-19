@@ -1,11 +1,13 @@
-#!/usr/bin/env node
-
 /**
- * Module dependencies.
+ * File Name: server.js
+ * Author: Mohammed Juned Ahmed
+ * Student ID: 300833356
+ * Website Name: https://comp308-w17-midterm-300833356.herokuapp.com/
+ * Github Repo: https://github.com/ahmmdd/COMP308-W2017-Midterm-300833356
  */
 
-let app = require('./server/app');
-let debug = require('debug')('comp308-lessons:server');
+ let app = require('./server/app');
+let debug = require('debug')('comp308-w2017-midterm:server');
 let http = require('http');
 
 /**

@@ -1,4 +1,12 @@
-// modules required for the project
+/**
+ * File Name: app.js
+ * Author: Mohammed Juned Ahmed
+ * Student ID: 300833356
+ * Website Name: https://comp308-w17-midterm-300833356.herokuapp.com/
+ * Github Repo: https://github.com/ahmmdd/COMP308-W2017-Midterm-300833356
+ */
+
+ // modules required for the project
 let express = require('express');
 let path = require('path'); // part of node.js core
 let favicon = require('serve-favicon');
@@ -28,9 +36,7 @@ db.once('open', () => {
 
 // define routers
 let index = require('./routes/index'); // top level routes
-let games = require('./routes/games'); // routes for games
-let users = require('./routes/users'); // routes for users and auth
-let api = require('./routes/api'); // routes for the JSON api
+let books = require('./routes/books'); // routes for books
 
 let app = express();
 
@@ -38,15 +44,13 @@ let app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// uncomment after placing your favicon in /client
+app.use(favicon(path.join(__dirname, '../client', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
-app.use(express.static(path.join(__dirname, '../node_modules')));
-
 
 // setup session
 app.use(session({
@@ -61,10 +65,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // route redirects
-app.use('/', index); // top level links
-app.use('/games', games); // games links - start with /games
-app.use('/users', users); // users links - start with /users
-app.use('/api', api); // returns JSON
+app.use('/', index);
+app.use('/books', books);
 
 // Passport User Configuration
 let UserModel = require('./models/users');

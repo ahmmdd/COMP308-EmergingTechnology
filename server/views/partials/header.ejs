@@ -1,7 +1,14 @@
+<!-- 
+ File Name: header.ejs
+ Author: Mohammed Juned Ahmed
+ Student ID: 300833356
+ Website Name: https://comp308-w17-midterm-300833356.herokuapp.com/
+ Github Repo: https://github.com/ahmmdd/COMP308-W2017-Midterm-300833356
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %></title>
@@ -22,7 +29,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><i class="fa fa-fort-awesome"></i> My Games</a>
+      <a class="navbar-brand" href="/"><i class="fa fa-bookmark-o"></i> My Favourite Books</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,28 +42,18 @@
         <% } %>
 
         <% if(typeof displayName == 'string' && displayName) { %>
-          <% if(title == "Games") { %>
-          <li class="active"><a href="/games"><i class="fa fa-gamepad fa-lg">
-          </i> Games List</a></li>
+          <% if(title == "Books") { %>
+          <li class="active"><a href="/books"><i class="fa fa-book fa-lg">
+          </i> Books List</a></li>
           <% } else { %>
-            <li><a href="/games"><i class="fa fa-gamepad fa-lg">
-            </i> Games List</a></li>
+            <li><a href="/books"><i class="fa fa-book fa-lg">
+            </i> Books List</a></li>
           <% } %>
-        <% } %>
-
-        <% if(title == "Contact") { %>
-          <li class="active"><a href="/contact"><i class="fa fa-phone fa-lg"></i> Contact</a></li>
-        <% } else { %>
-          <li><a href="/contact"><i class="fa fa-phone fa-lg"></i> Contact</a></li>
-        <% } %>
-
-        <% if(typeof displayName == 'string' && displayName) { %>
           <li class="navbar-text"><i class="fa fa-user"></i> Welcome, <%= displayName %></li>
-          <li><a href="/users/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+          <li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
         <% } else { %>
-          <li><a href="/users/login"><i class="fa fa-sign-in"></i> Login</a></li>
+          <li><a href="/login"><i class="fa fa-sign-in"></i> Login</a></li>
         <% } %>
-
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
