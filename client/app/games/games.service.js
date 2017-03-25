@@ -18,18 +18,32 @@ var GamesService = (function () {
     function GamesService(_http) {
         this._http = _http;
         // Instance Variables
-        this._baseURL = '/api';
-        console.log("-------- Games Service! ----------");
+        this._baseURL = '/api/games';
     }
     // Methods -----------------------
     GamesService.prototype.list = function () {
         return this._http
             .get(this._baseURL)
-            .map(function (res) { return res.json(); })
+            .map(this.extractData)
             .catch(this.handleError);
     };
+    GamesService.prototype.extractData = function (res) {
+        var body = res.json();
+        this.games = res.json();
+        return body || {};
+    };
     GamesService.prototype.handleError = function (error) {
-        return Observable_1.Observable.throw(error.json().message || 'Server Error');
+        var errMsg;
+        if (error instanceof http_1.Response) {
+            var body = error.json() || '';
+            var err = body.error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.log(errMsg);
+        return Observable_1.Observable.throw(errMsg);
     };
     return GamesService;
 }());

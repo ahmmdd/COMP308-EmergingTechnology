@@ -1,27 +1,45 @@
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestMethod, Response} from '@angular/http';
+import { Http, Headers, RequestMethod, RequestOptions, Response, } from '@angular/http';
+import { Game } from './game';
 
 @Injectable()
 export class GamesService {
   // Instance Variables
-  private _baseURL = '/api';
+  private _baseURL = '/api/games';
+  public games:Game[];
 
   // Constructor -------------------
-  constructor(private _http: Http) {
-    console.log("-------- Games Service! ----------");
+  constructor(public _http: Http) {
   }
 
   // Methods -----------------------
-  list(): Observable<any> {
-    return this._http
-       .get(this._baseURL)
-       .map((res: Response) => res.json())
-       .catch(this.handleError);
-  }
 
-  private handleError(error: Response) {
-    return Observable.throw(error.json().message || 'Server Error');
+  public list(): Observable<Game[]> {
+  return this._http
+  .get(this._baseURL)
+  .map(this.extractData)
+  .catch(this.handleError);
+}
+
+private extractData(res: Response) {
+  let body:Game[] = res.json();
+  this.games = res.json();
+  return body || {};
+}
+
+  private handleError(error: Response | any) {
+    let errMsg: string;
+    if(error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    }
+    else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.log(errMsg);
+    return Observable.throw(errMsg);
   }
 }

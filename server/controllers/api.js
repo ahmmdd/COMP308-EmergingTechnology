@@ -11,11 +11,14 @@ module.exports.ReadGameList = (req, res) => {
       return console.error(err);
     }
     else {
+      res.status(200).json(games);
+      /*
       res.status(200).json({
         title: 'Games',
         games: games,
         displayName: req.user.displayName
       });
+      */
     }
   });
 }

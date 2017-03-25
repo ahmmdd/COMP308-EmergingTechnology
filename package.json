@@ -1,6 +1,6 @@
 {
   "name": "comp308-lessons",
-  "version": "1.9.2",
+  "version": "1.10.1",
   "private": true,
   "scripts": {
     "tsc": "tsc",
@@ -45,7 +45,7 @@
     "node": ">=6.0.0",
     "npm": ">=3.5.0"
   },
-  "description": "## Welcome to Lesson 9 - MEAN CRUD",
+  "description": "## Welcome to Lesson 10 - MEAN CRUD II",
   "main": "server.js",
   "devDependencies": {
     "@angular/cli": "^1.0.0-rc.0",

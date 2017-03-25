@@ -9,22 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("rxjs/Rx");
 var core_1 = require("@angular/core");
 var games_service_1 = require("./games.service");
 var GamesComponent = (function () {
-    function GamesComponent() {
-        console.log("---- GAMES!!! ----");
+    function GamesComponent(_gamesService) {
+        this._gamesService = _gamesService;
+        this.games = new Array();
     }
     return GamesComponent;
 }());
 GamesComponent = __decorate([
     core_1.Component({
         selector: 'games',
-        template: '<router-outlet></router-outlet>',
-        //template: '<h1>GAMES!!!</h1>',
+        template: "<router-outlet></router-outlet>",
         providers: [games_service_1.GamesService]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [games_service_1.GamesService])
 ], GamesComponent);
 exports.GamesComponent = GamesComponent;
 //# sourceMappingURL=games.component.js.map

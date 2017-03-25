@@ -7,17 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var games_service_1 = require("./games/games.service");
 var AppComponent = (function () {
     function AppComponent() {
-        this.name = 'Angular';
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        templateUrl: 'app/app.template.html',
-        styleUrls: ['app/app.template.css']
+        template: "<router-outlet></router-outlet>",
+        providers: [games_service_1.GamesService]
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

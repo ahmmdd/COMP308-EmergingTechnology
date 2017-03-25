@@ -5,7 +5,7 @@ import { GamesComponent } from './games.component';
 import { ListComponent } from './list/list.component';
 
 export const GamesRoutes: Routes = [{
-  path: 'api',
+  path: '',
   component: GamesComponent,
   children: [
     {path: 'games', component: ListComponent}

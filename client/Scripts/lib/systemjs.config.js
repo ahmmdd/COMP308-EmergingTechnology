@@ -2,6 +2,8 @@
   System.config({
     // map tells the System loader where to look for things
     map: {
+      // our app is within the app folder
+      'app': 'app',
 
       // angular bundles
       '@angular/core': '@angular/core/bundles/core.umd.js',
@@ -11,6 +13,7 @@
       '@angular/platform-browser-dynamic': '@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
       '@angular/http': '@angular/http/bundles/http.umd.js',
       '@angular/router': '@angular/router/bundles/router.umd.js',
+      '@angular/router/upgrade': 'npm:@angular/router/bundles/router-upgrade.umd.js',
       '@angular/forms': '@angular/forms/bundles/forms.umd.js',
 
       // other libraries

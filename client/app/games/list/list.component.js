@@ -15,20 +15,26 @@ var ListComponent = (function () {
     // Constructor Method ----------------------------
     function ListComponent(_gamesService) {
         this._gamesService = _gamesService;
-        console.log("--------List Component ----------");
+        this.games = new Array();
     }
     // Methods ---------------------------------------
     ListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._gamesService.list().subscribe(function (games) { return _this.games = games; });
-        console.log(this.games);
+        this._gamesService.list().subscribe(function (games) { return _this.games = games; }, function (error) { return _this.errorMessage = error; });
+    };
+    ListComponent.prototype.showConfirm = function () {
+        if (!confirm("Are you sure?")) {
+            event.preventDefault();
+            window.location.assign("/games");
+        }
     };
     return ListComponent;
 }());
 ListComponent = __decorate([
     core_1.Component({
         selector: 'list',
-        templateUrl: 'app/games/list/list.template.html'
+        templateUrl: 'app/games/list/list.template.html',
+        providers: [games_service_1.GamesService]
     }),
     __metadata("design:paramtypes", [games_service_1.GamesService])
 ], ListComponent);
