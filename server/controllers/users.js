@@ -5,6 +5,12 @@ let passport = require('passport');
 let UserModel = require('../models/users');
 let User = UserModel.User; // alias for User Model - User object
 
+// Firebase requirements
+let firebase = require('../config/firebase.js');
+let firebaseDB = firebase.games; // access to games db
+let firebaseAdmin = firebase.admin;
+let firebaseAuth = firebase.auth;
+
 module.exports.DisplayLogin = (req, res) => {
 // check to see if the user is not already logged in
   if(!req.user) {
@@ -13,7 +19,7 @@ module.exports.DisplayLogin = (req, res) => {
       title: "Login",
       games: '',
       messages: req.flash('error'),
-      displayName: req.user ? req.user.displayName : ''
+      displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ""
     });
     return;
   } else {
@@ -22,12 +28,30 @@ module.exports.DisplayLogin = (req, res) => {
 }
 
 // Processes the Login Request
-module.exports.ProcessLogin = () => {
-  return passport.authenticate('local', {
-  successRedirect: '/games',
-  failureRedirect: '/users/login',
-  failureFlash: true
-})
+module.exports.ProcessLogin = (req, res, next) => {
+  firebaseAuth.signInWithEmailAndPassword(req.body.email, req.body.password)
+    .then(()=>{
+      return res.redirect('/games');
+    })
+    .catch((err) =>{
+      let errorCode = err.code;
+      let errorMessage = err.message;
+      if(errorCode == 'auth/wrong-password') {
+        console.log('auth/wrong-password');
+        req.flash('loginMessage', 'Incorrect Password');
+      }
+      if(errorCode == 'auth/user-not-found') {
+        console.log('auth/user-not-found');
+        req.flash('loginMessage', 'Incorrect Username');
+      }
+
+      return res.render('auth/login', {
+        title: "Login",
+        games: "",
+        messages: req.flash('loginMessage'),
+        displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ""
+      });
+    });
 }
 
 // Displays registration page
@@ -39,7 +63,7 @@ module.exports.DisplayRegistration = (req, res) => {
       title: "Register",
       games: '',
       messages: req.flash('registerMessage'),
-      displayName: req.user ? req.user.displayName : ''
+      displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ""
     });
     return;
   } else {
@@ -67,7 +91,7 @@ module.exports.ProcessRegistration = (req, res) => {
           title: "Register",
           games: '',
           messages: req.flash('registerMessage'),
-          displayName: req.user ? req.user.displayName : ''
+          displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ""
         });
       }
       // if registration is successful
