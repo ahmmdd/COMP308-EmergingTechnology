@@ -1,9 +1,11 @@
+/*
 let mongoose = require('mongoose');
 let passport = require('passport');
 
 // define the user model
 let UserModel = require('../models/users');
 let User = UserModel.User; // alias for User Model - User object
+*/
 
 // Firebase requirements
 let firebase = require('../config/firebase.js');
@@ -72,46 +74,63 @@ module.exports.DisplayRegistration = (req, res) => {
 }
 
 // Process the registration page
-module.exports.ProcessRegistration = (req, res) => {
-  User.register(
-    new User({
-      username: req.body.username,
-      //password: req.body.password,
-      email: req.body.email,
-      displayName: req.body.displayName
-    }),
-    req.body.password,
-    (err) => {
-      if(err) {
-        console.log('Error inserting new user');
-        if(err.name == "UserExistsError") {
-          req.flash('registerMessage', 'Registration Error: User Already Exists');
-        }
-        return res.render('auth/register', {
-          title: "Register",
-          games: '',
-          messages: req.flash('registerMessage'),
-          displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ""
-        });
-      }
-      // if registration is successful
-      return passport.authenticate('local')(req, res, ()=>{
-        res.redirect('/games');
-      });
+module.exports.ProcessRegistration = (req, res, next) => {
+
+  // uses admin to setup a new user
+  firebaseAdmin.auth().createUser({
+    email: req.body.email,
+    emailVerified: true,
+    password: req.body.password,
+    displayName: req.body.displayName,
+    disabled: false
+  })
+  // if user information is entered correctly and nothing goes wrong
+  .then((userRecord)=>{
+    firebaseAuth.signInWithEmailAndPassword(req.body.email, req.body.password)
+    .then(()=>{
+      return res.redirect('/games');
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.redirect('/login');
     });
+  })
+  .catch((err) => {
+    let errorCode = err.code;
+    let errorMessage = err.message;
+    if(errorCode == 'auth/weak-password') {
+      req.flash('registerMessage', 'The password is too weak');
+    }
+    if(errorCode == 'auth/email-already-in-use') {
+      req.flash('registerMessage', 'The email is already in use');
+    }
+    if(errorCode == 'auth/invalid-email') {
+      req.flash('registerMessage', ' The email address is not valid');
+    }
+
+    return res.render('auth/register', {
+      title: "Register",
+      games: "",
+      messages: req.flash('registerMessage'),
+      displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ""
+    })
+
+  });
 }
 
 // Process the Logout request
 module.exports.ProcessLogout = (req, res) => {
-  req.logout();
-  res.redirect('/'); // redirect to the home page
+  firebaseAuth.signOut()
+  .then(()=>{
+    res.redirect('/'); // redirect to home page
+  });
 }
 
   // create a function to check if the user is authenticated
 module.exports.RequireAuth = (req, res, next) => {
   // check if the user is logged in
-  if(!req.isAuthenticated()) {
-    return res.redirect('/users/login');
+  if(!firebaseAuth.currentUser) {
+    return res.redirect('/login');
   }
   next();
 }
