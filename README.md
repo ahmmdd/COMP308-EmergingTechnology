@@ -1,5 +1,5 @@
-# COMP308-Lessons
+# COMP308-Lesson11A
 
-## Welcome to Lesson 9 - MEAN CRUD
+## Welcome to Lesson 11 - MEAN CRUD III - Firebase II
 
 please use **`npm install`** to install project dependencies

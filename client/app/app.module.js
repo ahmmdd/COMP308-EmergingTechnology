@@ -19,7 +19,8 @@ var app_component_1 = require("./app.component");
 var app_routes_1 = require("./app.routes");
 // Custom Modules
 var games_module_1 = require("./games/games.module");
-// Here is a comment
+// Services
+var games_service_1 = require("./games/games.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,9 +28,9 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule,
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, http_1.JsonpModule, forms_1.FormsModule,
             games_module_1.GamesModule, router_1.RouterModule.forRoot(app_routes_1.AppRoutes)],
-        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
+        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, games_service_1.GamesService],
         declarations: [app_component_1.AppComponent],
         bootstrap: [app_component_1.AppComponent]
     })

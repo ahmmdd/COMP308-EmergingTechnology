@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 
+import { Game } from './games/game';
+
+import { GamesService } from './games/games.service';
+
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/app.template.html',
-  styleUrls: ['app/app.template.css']
+  template: `<router-outlet></router-outlet>`,
+  providers: [GamesService]
 })
 export class AppComponent {
-  name = 'Angular';
 }

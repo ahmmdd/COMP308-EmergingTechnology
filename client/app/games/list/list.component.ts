@@ -1,24 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 
 import { GamesService } from '../games.service';
 
+import { Game } from '../game';
+
 @Component({
   selector: 'list',
-  templateUrl: 'app/games/list/list.template.html'
+  templateUrl: 'app/games/list/list.template.html',
+  providers: [GamesService]
 })
 export class ListComponent {
   // Instance Variables
-  games: any;
+  games: Game[];
   errorMessage: string;
 
   // Constructor Method ----------------------------
   constructor(private _gamesService: GamesService) {
-    console.log("--------List Component ----------");
+    this.games = new Array<Game>();
   }
 
   // Methods ---------------------------------------
   ngOnInit() {
-    this._gamesService.list().subscribe(games => this.games = games);
-    console.log(this.games);
+    this._gamesService.list().subscribe(
+      games => this.games = games,
+      error => this.errorMessage = <any>error);
   }
+
+  showConfirm():void {
+    if(!confirm("Are you sure?")) {
+      event.preventDefault();
+      window.location.assign("/games");
+    }
+  }
+
 }

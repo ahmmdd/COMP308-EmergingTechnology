@@ -9,14 +9,16 @@ let usersController = require('../controllers/users');
 router.get('/login', (req, res, next)=>{
   usersController.DisplayLogin(req, res);
   // POST /login - process the login attempt
-}).post('/login', usersController.ProcessLogin());
+}).post('/login', (req, res, next) => {
+  usersController.ProcessLogin(req, res, next);
+});
 
 // GET /register - render the registration view
 router.get('/register', (req, res, next)=>{
    usersController.DisplayRegistration(req, res);
 }).post('/register', (req, res, next)=>{
   // POST / register - process the registration submission
-  usersController.ProcessRegistration(req, res);
+  usersController.ProcessRegistration(req, res, next);
 });
 
 // GET /logout - process the logout request

@@ -10,33 +10,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+//import { Router, ActivatedRoute } from '@angular/router';
+var router_1 = require("@angular/router");
 var games_service_1 = require("../games.service");
-var ListComponent = (function () {
+var EditComponent = (function () {
     // Constructor Method ----------------------------
-    function ListComponent(_gamesService) {
+    function EditComponent(_router, 
+        //private _route: ActivatedRoute,
+        _gamesService) {
+        this._router = _router;
         this._gamesService = _gamesService;
-        this.games = new Array();
     }
-    // Methods ---------------------------------------
-    ListComponent.prototype.ngOnInit = function () {
+    EditComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._gamesService.list().subscribe(function (games) { return _this.games = games; }, function (error) { return _this.errorMessage = error; });
+        //this.paramsObserver = this._route.params.subscribe(params => {
+        //let gameId = params['id'];
+        var gameId = '58964b1c4108ad0d0657f811'; // testing
+        this._gamesService.read(gameId).subscribe(function (game) {
+            _this.game = game;
+        }, function (error) { return _this._router.navigate(['/games']); });
+        //});
     };
-    ListComponent.prototype.showConfirm = function () {
-        if (!confirm("Are you sure?")) {
-            event.preventDefault();
-            window.location.assign("/games");
-        }
+    EditComponent.prototype.ngOnDestroy = function () {
+        this.paramsObserver.unsubscribe();
     };
-    return ListComponent;
+    return EditComponent;
 }());
-ListComponent = __decorate([
+EditComponent = __decorate([
     core_1.Component({
-        selector: 'list',
-        templateUrl: 'app/games/list/list.template.html',
+        selector: 'edit',
+        templateUrl: 'app/games/edit/edit.template.html',
         providers: [games_service_1.GamesService]
     }),
-    __metadata("design:paramtypes", [games_service_1.GamesService])
-], ListComponent);
-exports.ListComponent = ListComponent;
-//# sourceMappingURL=list.component.js.map
+    __metadata("design:paramtypes", [router_1.Router,
+        games_service_1.GamesService])
+], EditComponent);
+exports.EditComponent = EditComponent;
+//# sourceMappingURL=edit.component.js.map

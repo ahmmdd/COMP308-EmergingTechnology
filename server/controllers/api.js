@@ -3,6 +3,12 @@ let mongoose = require('mongoose');
 // define the game model
 let game = require('../models/games');
 
+// required for firebase
+let firebase = require('../config/firebase');
+let firebaseDB = firebase.games;
+let firebaseAdmin = firebase.admin;
+let firebaseAuth = firebase.auth;
+
 // Read and display the Game List
 module.exports.ReadGameList = (req, res) => {
   // find all games in the games collection
@@ -11,11 +17,14 @@ module.exports.ReadGameList = (req, res) => {
       return console.error(err);
     }
     else {
+      res.status(200).json(games);
+      /*
       res.status(200).json({
         title: 'Games',
         games: games,
         displayName: req.user.displayName
       });
+      */
     }
   });
 }
@@ -50,7 +59,7 @@ module.exports.GetGameById = (req, res) => {
           res.status(200).json({
               title: 'Game Details',
               games: games,
-              displayName: req.user.displayName
+              displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ''
           });
         }
       });

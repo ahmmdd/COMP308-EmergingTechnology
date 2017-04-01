@@ -1,6 +1,6 @@
 {
-  "name": "comp308-lessons",
-  "description": "## Welcome to Lesson 9 - MEAN CRUD",
+  "name": "comp308-w2017-lesson10b",
+  "description": "## Welcome to Lesson 10 - MEAN CRUD II - Firebase",
   "main": "server.js",
   "authors": [
     "Mohammed Juned Ahmed"
